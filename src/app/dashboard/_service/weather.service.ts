@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 	providedIn: "root",
 })
 export class WeatherService {
-	private apiKey = environment.WEATHER_API_KEY; // Replace with your OpenWeatherMap API key
+	private apiKey = "e1d765c61c1c545c396f3b45caaa2800"; // Replace with your OpenWeatherMap API key
 
 	constructor(private http: HttpClient) {}
 
