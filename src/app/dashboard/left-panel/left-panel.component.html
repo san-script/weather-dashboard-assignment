@@ -1,25 +1,47 @@
+<!-- Weather details container, displayed when currentWeather data is available -->
 <div class="weather-details" *ngIf="currentWeather">
+	<!-- Location information -->
 	<i class="fa-solid fa-location-dot"></i>
-	<h2>{{ currentWeather.name }},{{ currentWeather.sys.country }}</h2>
+	<h2>{{ currentWeather.name }}, {{ currentWeather.sys.country }}</h2>
+
+	<!-- Temperature unit switcher -->
 	<div class="temperature-switch">
+		<!-- Switch to Celsius -->
 		<span (click)="switchToCelsius()" [class.active]="isCelsius">°C</span>
 		<span class="pipe">|</span>
+
+		<!-- Switch to Fahrenheit -->
 		<span
-			(click)="switchToFahrenheit(currentWeather.main.temp,currentWeather.main.feels_like)"
+			(click)="
+				switchToFahrenheit(
+					currentWeather.main.temp,
+					currentWeather.main.feels_like
+				)
+			"
 			[class.active]="!isCelsius"
 			>°F</span
 		>
 	</div>
+
+	<!-- Weather information -->
 	<div class="weather-info">
+		<!-- Current temperature -->
 		<div class="temperature">
 			{{ temp | number : "1.2-2" }}°{{ tempUnit }}
 		</div>
-		<!-- <div class="details">
-			<p>Feels Like: {{ currentWeather.main.feels_like }}°C</p>
-			<p>Humidity: {{ currentWeather.main.humidity }}%</p>
-			
+
+		
+		<div class="details">
+			<p class="detail">
+				Feels Like: {{ temp_feels_like | number : "1.2-2" }}°{{
+					tempUnit
+				}}
+			</p>
+			<p class="detail">Humidity: {{ currentWeather.main.humidity }}%</p>
+
+			<!-- Wind information -->
 			<div class="wind-info">
-				<p>Wind:</p>
+				<p class="detail">Wind:</p>
 				<div
 					class="wind-arrow"
 					[style.transform]="
@@ -31,28 +53,14 @@
 						width="30"
 						height="30"
 						viewBox="0 0 50 50"
-						
-						>
+					>
 						<path fill="#000" d="M15 25l10-10v6h14v8H25v6z" />
 					</svg>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
-		<div class="details">
-			<p class="detail">Feels Like: {{ temp_feels_like | number : "1.2-2"}}°{{ tempUnit }}</p>
-			<p class="detail">Humidity: {{ currentWeather.main.humidity }}%</p>
-			
-			<div class="wind-info">
-			  <p class="detail">Wind:</p>
-			  <div class="wind-arrow" [style.transform]="'rotate(' + currentWeather.wind.deg + 'deg)'">
-				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50">
-				  <path fill="#000" d="M15 25l10-10v6h14v8H25v6z" />
-				</svg>
-			  </div>
-			</div>
-		  </div>
-		  
+		<!-- Weather icon and description -->
 		<div class="icon-text-container">
 			<img
 				src="https://openweathermap.org/img/wn/{{
@@ -64,16 +72,17 @@
 				toTitleCase(currentWeather.weather[0].description)
 			}}</span>
 		</div>
+
+		<!-- Date and time information -->
 		<div class="date-time">
 			<p>{{ localTime | date : "longDate" : "UTC" }}</p>
 			<p>{{ localTime | date : "shortTime" : "UTC" }}</p>
 		</div>
 	</div>
-	<!-- <div class="sunrise-sunset">
-    <p>Sunrise: {{ currentWeather.sys.sunrise | date: 'shortTime' }}</p>
-    <p>Sunset: {{ currentWeather.sys.sunset | date: 'shortTime' }}</p>
-  </div> -->
+
+	<!-- Sunrise and sunset information -->
 	<div class="sunrise-sunset">
+		<!-- Sunrise time -->
 		<div class="sunrise">
 			<i class="fas fa-sun"></i>
 			<span
@@ -86,6 +95,8 @@
 				}}</span
 			>
 		</div>
+
+		<!-- Sunset time -->
 		<div class="sunset">
 			<i class="fas fa-moon"></i>
 			<span

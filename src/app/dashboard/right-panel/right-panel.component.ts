@@ -52,7 +52,8 @@ export class RightPanelComponent {
 		});
 
 		this.sharedService.getCurrentLocation().then(
-			(location) => (console.log('location',location)),
+			(location) => (
+				console.log('location',location)),
 			(error) => console.error(error)
 		  );
 	}

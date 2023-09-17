@@ -1,4 +1,6 @@
+<!-- location-search-container: Container for location search and weather chart -->
 <div class="location-search-container">
+	<!-- location-search: Search input and button for city search (desktop version) -->
 	<div class="location-search desk-search">
 		<input
 			placeholder="Search for a city..."
@@ -10,6 +12,8 @@
 			<i class="fa-solid fa-search-location"></i> Search
 		</button>
 	</div>
+
+	<!-- chart-container: Container for displaying temperature and humidity charts -->
 	<div
 		class="chart-container"
 		[ngClass]="{
@@ -17,6 +21,7 @@
 			'humidity-chart': showHumidityChart
 		}"
 	>
+		<!-- chart-labels: Labels to toggle between temperature and humidity charts -->
 		<div class="chart-labels">
 			<span
 				class="chart-label"
@@ -32,11 +37,16 @@
 			>
 		</div>
 
+		<!-- chartdiv: Placeholder for the actual chart (e.g., temperature or humidity chart) -->
 		<div id="chartdiv" class="temp-charts"></div>
 	</div>
 </div>
+
+<!-- weather-details: Section for displaying additional weather details -->
 <p class="weather-details">More details of today's weather</p>
+
 <div>
 	<!-- Other content -->
 	<app-right-bottom-panel></app-right-bottom-panel>
+	<!-- Include your right bottom panel component here -->
 </div>

@@ -1,27 +1,44 @@
+<!-- This is the main dashboard container -->
 <div class="dashboard">
-  <app-alert></app-alert>
-  <app-header></app-header> <!-- Include your header component here -->
-  
+	<!-- Include the 'app-alert' component for displaying alerts -->
+	<app-alert></app-alert>
 
+	<!-- Include the 'app-header' component for the application header -->
+	<app-header></app-header>
+	<!-- Include your header component here -->
 
-<div class="mob-search-section">
-  <div class="location-search">
-    <input placeholder="Search for a location..." class="search-input" [(ngModel)]="locationValue" (keyup.enter)="searchLocation()"/>
-    <button class="search-button" (click)="searchLocation()">
-        <i class="fa-solid fa-search-location"></i> Search
-    </button>
-</div>
-</div>
+	<!-- Mobile search section -->
+	<div class="mob-search-section">
+		<div class="location-search">
+			<!-- Input field for location search -->
+			<input
+				placeholder="Search for a location..."
+				class="search-input"
+				[(ngModel)]="locationValue"
+				(keyup.enter)="searchLocation()"
+			/>
 
-  <div class="content">
-    <div class="inner-content">
-    <div class="left-panel">
-      <app-left-panel></app-left-panel> <!-- Include your left panel component here -->
-    </div>
+			<!-- Button to trigger location search -->
+			<button class="search-button" (click)="searchLocation()">
+				<i class="fa-solid fa-search-location"></i> Search
+			</button>
+		</div>
+	</div>
 
-    <div class="right-panel">
-      <app-right-panel></app-right-panel> <!-- Include your right panel component here -->
-    </div>
-  </div>
-  </div>
+	<!-- Main content area -->
+	<div class="content">
+		<div class="inner-content">
+			<!-- Left panel component -->
+			<div class="left-panel">
+				<app-left-panel></app-left-panel>
+				<!-- Include your left panel component here -->
+			</div>
+
+			<!-- Right panel component -->
+			<div class="right-panel">
+				<app-right-panel></app-right-panel>
+				<!-- Include your right panel component here -->
+			</div>
+		</div>
+	</div>
 </div>

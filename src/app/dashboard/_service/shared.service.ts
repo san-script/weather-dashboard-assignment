@@ -64,6 +64,7 @@ export class SharedService {
 			.join(" ");
 	}
 
+	// Function to get geolcation of current place
 	getCurrentLocation(): Promise<any> {
 		return new Promise((resolve, reject) => {
 			if ("geolocation" in navigator) {

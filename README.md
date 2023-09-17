@@ -73,4 +73,3 @@ Follow these steps to get the Angular Weather Forecast App up and running on you
 
    This will execute the unit tests, and you'll see the test results in your terminal.
 
-

@@ -1,10 +1,15 @@
-<!-- chart-container.component.html -->
+
+<!-- Container for the additional grid, displayed when weather data is available -->
 <div class="chart-grid" *ngIf="receivedWeatherData">
+	<!-- Visibility chart item -->
 	<div class="chart-item">
+		<!-- Visibility information container -->
 		<div class="visibility-container">
+			<!-- Visibility icon -->
 			<div class="visibility-icon">
 				<i class="fa-solid fa-eye"></i>
 			</div>
+			<!-- Visibility text -->
 			<div class="visibility-text">
 				Visibility:
 				{{
@@ -14,8 +19,12 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Temperature chart item -->
 	<div class="chart-item" *ngIf="receivedWeatherData.main">
+		<!-- Temperature information container -->
 		<div class="temperature-container">
+			<!-- Minimum temperature -->
 			<div class="temperature">
 				<i class="fas fa-thermometer-empty"></i>
 				<span
@@ -24,6 +33,7 @@
 					}}</span
 				>
 			</div>
+			<!-- Maximum temperature -->
 			<div class="temperature">
 				<i class="fas fa-thermometer-full"></i>
 				<span
@@ -34,9 +44,14 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Wind speed chart item -->
 	<div class="chart-item" *ngIf="receivedWeatherData.wind">
+		<!-- Wind speed information container -->
 		<div class="wind-speed-container">
+			<!-- Wind speed icon -->
 			<i class="fas fa-wind wind-icon"></i>
+			<!-- Wind speed text -->
 			<div class="wind-speed">
 				<span class="value">Wind Speed:</span>
 				<span class="unit"
@@ -45,5 +60,6 @@
 			</div>
 		</div>
 	</div>
-	<!--  -->
+
+	<!-- Add more chart items here if needed -->
 </div>
