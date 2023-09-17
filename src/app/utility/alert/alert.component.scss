@@ -1,0 +1,51 @@
+.alert {
+	padding: 10px;
+	border-radius: 4px;
+	color: #faf4f4;
+	text-align: center;
+	font-weight: bold;
+	margin: 0 auto;
+	max-width: 300px;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+	// background-color: #ff6347; // Red background for error type
+
+	&.error {
+		background-color: #ff897e; // Red background for error type
+	}
+
+	// Media query for responsiveness
+	@media (max-width: 768px) {
+		max-width: 100%;
+	}
+
+	// Animation for entry
+	animation: slideIn 0.3s ease-in-out;
+
+	@keyframes slideIn {
+		0% {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	// Animation for exit
+	&.ng-leave {
+		animation: slideOut 0.3s ease-in-out;
+	}
+
+	@keyframes slideOut {
+		0% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+	}
+}

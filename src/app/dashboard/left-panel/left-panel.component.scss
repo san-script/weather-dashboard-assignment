@@ -1,0 +1,188 @@
+.weather-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 40px 30px;
+	background-color: #0586db;
+	color: #ffffff;
+	border-radius: 35px 0 0 35px;
+	transition: all 0.3s ease; /* Smooth transition */
+	position: relative;
+	z-index: 0;
+	@media (max-width: 991px) {
+		border-radius: 30px;
+		margin-bottom: 20px;
+		padding: 30px 20px !important;
+	}
+	&:after,
+	&:before {
+		width: 40px;
+		height: 40px;
+		background-color: #0586db;
+		position: absolute;
+		top: inherit;
+		bottom: 0;
+		right: -39px;
+		border-radius: 0 20px 20px 0;
+		transition: all 0.3s ease; /* Smooth transition */
+		content: "";
+		@media (max-width: 991px) {
+			display: none;
+		}
+	}
+	&:before {
+		top: 0;
+		bottom: inherit;
+		right: -39px;
+		content: "";
+	}
+	&:hover {
+		transform: scale(1.05); /* Enlarge on hover */
+		background: #02426D;
+		&:after,
+	&:before {
+		background: #02426D;
+	}
+	}
+
+	.fa-location-dot {
+		font-size: 30px;
+	}
+
+	h2 {
+		margin: 10px 0;
+		font-size: 20px;
+	}
+
+	.temperature-switch {
+		display: flex;
+		align-items: center;
+		margin-top: 10px;
+		color: #8fc9ef;
+		font-weight: 600;
+
+		span {
+			cursor: pointer;
+			font-size: 15px;
+			padding: 5px;
+			user-select: none;
+			font-weight: 500;
+
+			&.active {
+				color: #ffffff;
+			}
+		}
+
+		.pipe {
+			margin: 0 10px;
+			font-size: 18px;
+		}
+	}
+
+	.weather-info {
+		.temperature {
+			font-size: 35px;
+			font-weight: 400;
+			transition: font-size 0.3s ease; /* Smooth font size transition */
+		}
+
+		
+		.icon-text-container,
+		.date-time {
+			margin-top: 20px;
+			font-size: 18px;
+		}
+		.details {
+			margin: 0; /* Remove any default margin on <p> elements */
+		}
+
+		.icon-text-container {
+			display: flex;
+			align-items: center;
+			transition: transform 0.3s ease; /* Smooth transform transition */
+
+			i {
+				font-size: 24px;
+				margin-right: 10px;
+			}
+		}
+	}
+
+	.sunrise-sunset {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.12);
+		padding: 15px;
+		border-radius: 9px;
+	}
+
+	.sunrise,
+	.sunset {
+		display: flex;
+		align-items: center;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	.sunrise i,
+	.sunset i {
+		margin-right: 10px;
+		font-size: 24px;
+	}
+
+	.wind-info {
+		display: flex; /* Use flexbox to align items horizontally */
+		align-items: center; /* Vertically center the items */
+		justify-content: center; 
+	}
+
+	.wind-info p {
+		margin-right: 10px; /* Add some spacing between the <p> and the arrow */
+		margin-top: 0;
+		
+	}
+
+	/* Add any additional responsive styling here */
+
+	.wind-arrow {
+		// width: 50px;
+		// height: 50px;
+		fill: #ffffff; /* Set the arrow's color */
+		transition: transform 0.5s; /* Add a smooth transition effect */
+		margin-top: -14px;
+		svg path{
+			fill: #ffffff;
+		}
+	}
+
+	/* You can further style as needed for colors, spacing, and fonts */
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		padding: 10px;
+		font-size: 14px;
+
+		.temperature-info .temperature {
+			font-size: 36px;
+		}
+
+		.weather-info .details,
+		.weather-info .weather-description,
+		.weather-info .date-time {
+			margin-top: 10px;
+			font-size: 14px;
+		}
+
+		.sunrise-sunset p {
+			font-size: 14px;
+		}
+
+		.icon-text-container i {
+			font-size: 18px;
+			margin-right: 8px;
+		}
+	}
+}

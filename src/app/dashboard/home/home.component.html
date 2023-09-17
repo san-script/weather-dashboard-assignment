@@ -1,0 +1,27 @@
+<div class="dashboard">
+  <app-alert></app-alert>
+  <app-header></app-header> <!-- Include your header component here -->
+  
+
+
+<div class="mob-search-section">
+  <div class="location-search">
+    <input placeholder="Search for a location..." class="search-input" [(ngModel)]="locationValue" (keyup.enter)="searchLocation()"/>
+    <button class="search-button" (click)="searchLocation()">
+        <i class="fa-solid fa-search-location"></i> Search
+    </button>
+</div>
+</div>
+
+  <div class="content">
+    <div class="inner-content">
+    <div class="left-panel">
+      <app-left-panel></app-left-panel> <!-- Include your left panel component here -->
+    </div>
+
+    <div class="right-panel">
+      <app-right-panel></app-right-panel> <!-- Include your right panel component here -->
+    </div>
+  </div>
+  </div>
+</div>

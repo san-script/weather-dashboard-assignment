@@ -1,0 +1,26 @@
+/* Header styling */
+.header {
+  // background-color: #b5d8ff;
+  // background-image: url('your-background-image-url.jpg'); /* Add your background image URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #02426d;
+  padding: 20px; /* Increase padding for better spacing */
+  text-align: center;
+  font-size: 14px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  transition: all 0.3s ease; /* Smooth transition for background color and size */
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    padding: 10px; /* Reduce padding for smaller screens */
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  /* Hover effect */
+  // &:hover {
+  //   background-color: #7bb6fa; /* Change background color on hover */
+  // }
+}

@@ -1,0 +1,49 @@
+<!-- chart-container.component.html -->
+<div class="chart-grid" *ngIf="receivedWeatherData">
+	<div class="chart-item">
+		<div class="visibility-container">
+			<div class="visibility-icon">
+				<i class="fa-solid fa-eye"></i>
+			</div>
+			<div class="visibility-text">
+				Visibility:
+				{{
+					receivedWeatherData.visibility / 1000 | number : "1.2-2"
+				}}
+				km
+			</div>
+		</div>
+	</div>
+	<div class="chart-item" *ngIf="receivedWeatherData.main">
+		<div class="temperature-container">
+			<div class="temperature">
+				<i class="fas fa-thermometer-empty"></i>
+				<span
+					>{{ temperatureMin | number : "1.2-2" }}°{{
+						receivedUnit
+					}}</span
+				>
+			</div>
+			<div class="temperature">
+				<i class="fas fa-thermometer-full"></i>
+				<span
+					>{{ temperatureMax | number : "1.2-2" }}°{{
+						receivedUnit
+					}}</span
+				>
+			</div>
+		</div>
+	</div>
+	<div class="chart-item" *ngIf="receivedWeatherData.wind">
+		<div class="wind-speed-container">
+			<i class="fas fa-wind wind-icon"></i>
+			<div class="wind-speed">
+				<span class="value">Wind Speed:</span>
+				<span class="unit"
+					>{{ receivedWeatherData.wind.speed }} mph</span
+				>
+			</div>
+		</div>
+	</div>
+	<!--  -->
+</div>

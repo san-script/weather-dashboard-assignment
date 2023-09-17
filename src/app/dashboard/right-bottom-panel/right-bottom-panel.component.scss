@@ -1,0 +1,205 @@
+/* chart-container.component.scss */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Adjust column width as needed */
+    gap: 20px;
+    /* Adjust gap between divs */
+    @media (max-width:767px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+// .chart-item {
+//     // background-color: #ffffff;
+//     // /* White background */
+//     // border-radius: 10px;
+//     // /* Rounded corners */
+//     // padding: 20px;
+//     /* Spacing around charts */
+//     // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     /* Box shadow for cards */
+
+//     /* Responsive adjustments */
+//     @media screen and (max-width: 768px) {
+//         grid-template-columns: 1fr;
+//         /* Single column for small screens */
+//     }
+// }
+
+/* Visibility Container */
+.visibility-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    height: 100%;
+    color:#02426D;
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    /* Animation for hover */
+    &:hover {
+        background-color: #dfeeff;
+    }
+}
+
+/* Visibility Icon */
+.visibility-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+
+    /* Animation for icon rotation */
+    &.rotate {
+        transform: rotate(45deg);
+    }
+}
+
+/* Visibility Text */
+.visibility-text {
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+}
+
+/* Eye Icon Styles */
+.fa-eye::before {
+    content: "\f06e";
+    /* Unicode for the eye icon */
+}
+
+/* Eye Icon Styles for hidden state */
+.fa-eye-slash::before {
+    content: "\f070";
+    /* Unicode for the crossed-out eye icon */
+}
+
+.temperature-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    height: 100%;
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    /* Hover effect */
+    &:hover {
+        background-color: #dfeeff;
+    }
+
+    /* Transition for child elements */
+    .temperature {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        transition: transform 0.3s ease;
+
+        i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        span {
+            font-size: 18px;
+        }
+    }
+}
+
+/* Custom styles for min temperature */
+.temperature:nth-child(1) {
+    color: #0586DB;
+    /* Blue color for min temperature */
+}
+
+/* Custom styles for max temperature */
+.temperature:nth-child(2) {
+    color: #ff6b6b;
+    /* Red color for max temperature */
+}
+
+
+
+// wind speed styles
+
+.wind-speed-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    color:#02426D;
+    border-radius: 5px;
+    justify-content: center;
+    height: 100%;
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+     /* Animation for hover */
+     &:hover {
+        background-color: #dfeeff;
+    }
+}
+
+.wind-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.wind-speed {
+    display: flex;
+    align-items: center;
+
+    .value {
+        font-size: 18px;
+    }
+
+    .unit {
+        font-size: 14px;
+        margin-left: 4px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeInOut {
+    animation: fadeInOut 0.5s ease-in-out;
+}

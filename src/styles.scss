@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+// google fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    // background: #b9d3e1;
+    background: hsla(0, 0%, 100%, 1);
+
+background: radial-gradient(circle, hsla(0, 0%, 100%, 1) 40%, hsla(207, 82%, 89%, 1) 100%);
+
+background: -moz-radial-gradient(circle, hsla(0, 0%, 100%, 1) 40%, hsla(207, 82%, 89%, 1) 100%);
+
+background: -webkit-radial-gradient(circle, hsla(0, 0%, 100%, 1) 40%, hsla(207, 82%, 89%, 1) 100%);
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    box-sizing: border-box
+}
+

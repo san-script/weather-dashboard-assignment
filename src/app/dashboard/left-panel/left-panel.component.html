@@ -1,0 +1,102 @@
+<div class="weather-details" *ngIf="currentWeather">
+	<i class="fa-solid fa-location-dot"></i>
+	<h2>{{ currentWeather.name }},{{ currentWeather.sys.country }}</h2>
+	<div class="temperature-switch">
+		<span (click)="switchToCelsius()" [class.active]="isCelsius">°C</span>
+		<span class="pipe">|</span>
+		<span
+			(click)="switchToFahrenheit(currentWeather.main.temp,currentWeather.main.feels_like)"
+			[class.active]="!isCelsius"
+			>°F</span
+		>
+	</div>
+	<div class="weather-info">
+		<div class="temperature">
+			{{ temp | number : "1.2-2" }}°{{ tempUnit }}
+		</div>
+		<!-- <div class="details">
+			<p>Feels Like: {{ currentWeather.main.feels_like }}°C</p>
+			<p>Humidity: {{ currentWeather.main.humidity }}%</p>
+			
+			<div class="wind-info">
+				<p>Wind:</p>
+				<div
+					class="wind-arrow"
+					[style.transform]="
+						'rotate(' + currentWeather.wind.deg + 'deg)'
+					"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="30"
+						height="30"
+						viewBox="0 0 50 50"
+						
+						>
+						<path fill="#000" d="M15 25l10-10v6h14v8H25v6z" />
+					</svg>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="details">
+			<p class="detail">Feels Like: {{ temp_feels_like | number : "1.2-2"}}°{{ tempUnit }}</p>
+			<p class="detail">Humidity: {{ currentWeather.main.humidity }}%</p>
+			
+			<div class="wind-info">
+			  <p class="detail">Wind:</p>
+			  <div class="wind-arrow" [style.transform]="'rotate(' + currentWeather.wind.deg + 'deg)'">
+				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50">
+				  <path fill="#000" d="M15 25l10-10v6h14v8H25v6z" />
+				</svg>
+			  </div>
+			</div>
+		  </div>
+		  
+		<div class="icon-text-container">
+			<img
+				src="https://openweathermap.org/img/wn/{{
+					currentWeather.weather[0].icon
+				}}@2x.png"
+				alt="weather Image"
+			/>
+			<span class="text">{{
+				toTitleCase(currentWeather.weather[0].description)
+			}}</span>
+		</div>
+		<div class="date-time">
+			<p>{{ localTime | date : "longDate" : "UTC" }}</p>
+			<p>{{ localTime | date : "shortTime" : "UTC" }}</p>
+		</div>
+	</div>
+	<!-- <div class="sunrise-sunset">
+    <p>Sunrise: {{ currentWeather.sys.sunrise | date: 'shortTime' }}</p>
+    <p>Sunset: {{ currentWeather.sys.sunset | date: 'shortTime' }}</p>
+  </div> -->
+	<div class="sunrise-sunset">
+		<div class="sunrise">
+			<i class="fas fa-sun"></i>
+			<span
+				>Sunrise:
+				{{
+					convertToTimezoneOffset(
+						currentWeather.sys.sunrise,
+						currentWeather.timezone
+					) | date : "shortTime" : "UTC"
+				}}</span
+			>
+		</div>
+		<div class="sunset">
+			<i class="fas fa-moon"></i>
+			<span
+				>Sunset:
+				{{
+					convertToTimezoneOffset(
+						currentWeather.sys.sunset,
+						currentWeather.timezone
+					) | date : "shortTime" : "UTC"
+				}}</span
+			>
+		</div>
+	</div>
+</div>
