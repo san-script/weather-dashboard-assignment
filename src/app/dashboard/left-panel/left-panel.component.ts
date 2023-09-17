@@ -48,8 +48,12 @@ export class LeftPanelComponent {
 		this.sharedService.sharedData$.subscribe((data) => {
 			this.sharedLocation = data;
 			this.city = this.sharedLocation;
+			this.tempUnit='C'
+			this.switchToCelsius()
 			this.loadWeatherData(); // Load weather data for the selected city
 		});
+
+
 	}
 
 	loadWeatherData() {
